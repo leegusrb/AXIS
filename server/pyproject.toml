@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axis-server"
+version = "0.1.0"
+requires-python = ">=3.12"
+# axis-ai(로컬 패키지)는 이름만 적는다. 먼저 `pip install -e "ai[dev]" -e "server[dev]"`로 함께 설치한다.
+dependencies = [
+  "axis-ai", "fastapi", "uvicorn[standard]", "python-multipart",
+  "sqlalchemy>=2", "pydantic>=2", "pydantic-settings", "pillow", "pyjwt", "alembic",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx", "httpx2"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["axis_server*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+axis_server = ["migrations/*", "migrations/versions/*"]

@@ -1,0 +1,33 @@
+# 데이터·모델·DB (커밋하지 않음)
+data/raw/
+data/processed/
+models/
+server/var/
+*.pt
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# 에이전트 작업 폴더
+.superpowers/
+.claude/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.iml
+.idea/
+.DS_Store
+Pods/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/ephemeral/
+**/DerivedData/
+*.egg-info/

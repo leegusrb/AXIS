@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axis-ai"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["numpy", "pillow", "scikit-learn", "torch", "torchvision", "ultralytics", "transformers"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+bench = ["onnx", "onnxruntime"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["axis_ai*"]
+
+[tool.pytest.ini_options]
+markers = ["model: 실제 가중치 필요"]
+addopts = "-m 'not model'"
+testpaths = ["tests"]
